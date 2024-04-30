@@ -23,9 +23,11 @@ const Nav = () => {
       <li>
         <NavLink to="/add-painting">Add Painting</NavLink>
       </li>
-      <li>
-        <NavLink to="/my-painting">My Painting</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/my-painting">My Painting</NavLink>
+        </li>
+      )}
     </>
   );
   return (
