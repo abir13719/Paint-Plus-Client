@@ -120,7 +120,7 @@ const SignUp = () => {
           <div className="flex text-black">
             <span>
               Already have an account? Please
-              <Link to="/login" className="font-medium">
+              <Link to="/log-in" className="font-medium">
                 {" "}
                 Login
               </Link>

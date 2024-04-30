@@ -57,9 +57,11 @@ const Nav = () => {
             Sign Up
           </button>
         </Link>
-        <button className="btn bg-gradient-to-t from-stone-500 to-stone-600 border-none bg-blend-multiply hover:bg-black text-white">
-          Log In
-        </button>
+        <Link to="/log-in">
+          <button className="btn bg-gradient-to-t from-stone-500 to-stone-600 border-none bg-blend-multiply hover:bg-black text-white">
+            Log In
+          </button>
+        </Link>
       </div>
     </div>
   );
