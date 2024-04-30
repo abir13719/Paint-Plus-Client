@@ -9,7 +9,7 @@ const AddPainting = () => {
           <h1 className="text-center text-2xl font-medium text-black col-span-2">
             Add Your Painting
           </h1>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -17,7 +17,7 @@ const AddPainting = () => {
               placeholder="Photo URL"
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -27,7 +27,7 @@ const AddPainting = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -36,7 +36,7 @@ const AddPainting = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="number"
@@ -46,7 +46,7 @@ const AddPainting = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="number"
@@ -56,7 +56,7 @@ const AddPainting = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -65,7 +65,7 @@ const AddPainting = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -74,7 +74,7 @@ const AddPainting = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -83,7 +83,7 @@ const AddPainting = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="email"
@@ -92,7 +92,7 @@ const AddPainting = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2 md:col-span-1">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -101,7 +101,7 @@ const AddPainting = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-full py-2 px-4 col-span-2">
+          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2">
             <input
               className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
               type="text"
@@ -112,7 +112,7 @@ const AddPainting = () => {
           </div>
           <div className="col-span-2">
             <input
-              className=" text-black w-full btn text-base rounded-full bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black"
+              className=" text-black w-full btn text-base rounded-sm bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black"
               type="submit"
               value="Add Paint"
             />

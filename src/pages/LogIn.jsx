@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const LogIn = () => {
+  const { signInUser, signInWithGoogle, signInWithGitHub, setUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [problem, setProblem] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -15,7 +19,36 @@ const LogIn = () => {
     console.log(email, password);
 
     setProblem("");
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user),
+          setUser(result.user),
+          navigate(location.state ? location.state : "/");
+      })
+      .catch(() => setProblem("User and password do not match"));
   };
+
+  const handleGoogleLogIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user),
+          setUser(result.user),
+          navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleGithubLogIn = () => {
+    signInWithGitHub()
+      .then((result) => {
+        console.log(result.user),
+          setUser(result.user),
+          navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => console.error(error));
+  };
+
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -54,13 +87,13 @@ const LogIn = () => {
           </div>
           <div className="flex gap-2 items-center justify-center text-black border-b border-t border-gray-800 py-2">
             <span>Log in with</span>
-            <span className="cursor-pointer">
+            <span onClick={handleGoogleLogIn} className="cursor-pointer">
               <div className="flex items-center gap-1 bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black p-1 rounded-md">
                 <FaGoogle />
                 Google
               </div>
             </span>
-            <span className="cursor-pointer">
+            <span onClick={handleGithubLogIn} className="cursor-pointer">
               <div className="flex items-center gap-1 bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black p-1 rounded-md">
                 <FaGithub />
                 Github

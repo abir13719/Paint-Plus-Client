@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaFileImage, FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   // States and Variables
+  const { createUser } = useContext(AuthContext);
   const [problem, setProblem] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showCPassword, setShowCPassword] = useState(false);
+  const navigate = useNavigate();
 
   // Sign Up Functions
   const handleSignUp = (e) => {
@@ -43,6 +47,20 @@ const SignUp = () => {
     // Making local user object data
     const newUser = { name, photo, email, password };
     console.log(newUser);
+
+    //Create a new user
+    createUser(email, password)
+      .then(
+        (result) =>
+          updateProfile(result.user, {
+            displayName: name,
+            photoURL: photo,
+          }),
+        setSuccess("User created successfully"),
+        navigate("/"),
+        e.target.reset()
+      )
+      .catch((error) => setProblem(error.message.split("Error")[1].replace(/[()-.]/g, " ")));
   };
 
   // Show and Hide Password
