@@ -55,7 +55,7 @@ const SignUp = () => {
 
   return (
     <div className="container mx-auto  h-screen flex items-center justify-center loginBg my-5">
-      <div className=" backdrop-blur-3xl shadow-2xl p-4 rounded-xl w-[360px] border border-black animate__animated animate__lightSpeedInRight">
+      <div className="bg-white/20 backdrop-blur-3xl shadow-2xl p-4 rounded-xl w-[360px] border border-black animate__animated animate__slideInUp">
         <form onSubmit={handleSignUp} className="flex flex-col gap-3">
           <h1 className="text-center text-2xl font-medium text-black">Sign Up</h1>
           <div className="flex items-center justify-between border border-black rounded-full py-2 px-4">
@@ -114,7 +114,7 @@ const SignUp = () => {
             <input
               className=" text-black w-full btn text-base rounded-full bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black"
               type="submit"
-              value="Register"
+              value="Sign Up"
             />
           </div>
           <div className="flex text-black">
