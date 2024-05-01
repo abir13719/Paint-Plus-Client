@@ -1,7 +1,43 @@
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+
 const AddPainting = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const handleAddPaint = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const newPainting = {
+      photoURL: form.photoURL.value,
+      paintName: form.paintName.value,
+      category: form.category.value,
+      rating: form.rating.value,
+      price: form.price.value,
+      customization: form.customize.value,
+      process: form.pTime.value,
+      stockStatus: form.stock.value,
+      email: form.email.value,
+      userName: form.userName.value,
+      description: form.description.value,
+    };
+    console.log(newPainting);
+    fetch("http://localhost:5000/painting", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newPainting),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          alert("Paint added successfully");
+          form.reset();
+        }
+      });
   };
+
   return (
     <div className="container mx-auto  min-h-screen flex items-center justify-center loginBg my-5">
       <div className="bg-white/20 backdrop-blur-3xl shadow-2xl p-4 rounded-xl min-w-[360px] md:w-[600px] border border-black animate__animated animate__slideInUp">
@@ -9,110 +45,140 @@ const AddPainting = () => {
           <h1 className="text-center text-2xl font-medium text-black col-span-2">
             Add Your Painting
           </h1>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="photoURL" className="block text-black font-medium">
+              Photo URL
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
               type="text"
-              name="photo"
-              placeholder="Photo URL"
+              name="photoURL"
+              id="photoURL"
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="paintName" className="block text-black font-medium">
+              Painting Name
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
               type="text"
               name="paintName"
-              placeholder="Painting Title"
-              required
+              id="paintName"
             />
           </div>
-
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
-            <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
-              type="text"
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="category" className="block text-black font-medium">
+              Category
+            </label>
+            <select
+              id="category"
               name="category"
-              placeholder="Category"
-              required
-            />
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+            >
+              <option value="paper-paint">Paper Paint</option>
+              <option value="digital-paint">Digital Paint</option>
+            </select>
           </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="rating" className="block text-black font-medium">
+              Rating
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
               type="number"
               name="rating"
-              placeholder="Rating"
-              required
+              id="rating"
             />
           </div>
-
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="price" className="block text-black font-medium">
+              Price
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
               type="number"
               name="price"
-              placeholder="Price"
-              required
+              id="price"
             />
           </div>
-
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
-            <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
-              type="text"
-              name="customization"
-              placeholder="Customization"
-              required
-            />
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="customize" className="block text-black font-medium">
+              Customizable
+            </label>
+            <select
+              id="customize"
+              name="customize"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+            >
+              <option value="yes">Yes</option>
+              <option value="false">No</option>
+            </select>
           </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="pTime" className="block text-black font-medium">
+              Process Time (in minutes)
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
-              type="text"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+              type="number"
               name="pTime"
-              placeholder="Processing Time"
-              required
+              id="pTime"
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
-            <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
-              type="text"
-              name="stockStatus"
-              placeholder="Stock Status"
-              required
-            />
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="stock" className="block text-black font-medium">
+              Stock Status
+            </label>
+            <select
+              id="stock"
+              name="stock"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+            >
+              <option value="stock-in">Stock In</option>
+              <option value="stock-out">Stock Out</option>
+            </select>
           </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="email" className="block text-black font-medium">
+              User Email
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+              defaultValue={user.email}
               type="email"
               name="email"
-              placeholder="User Email"
-              required
+              id="email"
+              disabled
             />
           </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
+            <label htmlFor="userName" className="block text-black font-medium">
+              User Name
+            </label>
             <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+              defaultValue={user.displayName}
               type="text"
               name="userName"
-              placeholder="User Name"
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between border border-black rounded-sm py-2 px-4 col-span-2">
-            <input
-              className="text-black w-full bg-transparent border-none outline-none font-medium placeholder:text-black placeholder:font-medium"
-              type="text"
-              name="description"
-              placeholder="Description"
-              required
+              id="userName"
+              disabled
             />
           </div>
           <div className="col-span-2">
+            <label htmlFor="description" className="block text-black font-medium">
+              Description
+            </label>
+            <textarea
+              name="description"
+              id="description"
+              rows="2"
+              className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
+            ></textarea>
+          </div>
+          <div className="col-span-2">
             <input
-              className=" text-black w-full btn text-base rounded-sm bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black"
+              className=" text-black w-full btn text-base rounded-lg bg-white/10 border border-black backdrop-blur-3xl hover:bg-white/20 hover:border-black"
               type="submit"
               value="Add Paint"
             />

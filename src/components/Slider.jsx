@@ -4,13 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
 const Slider = () => {
-  const [img, setImg] = useState([]);
-  console.log(img);
+  const [image, setImage] = useState([]);
+  console.log(image);
 
   useEffect(() => {
     fetch("http://localhost:5000/slider")
       .then((res) => res.json())
-      .then((data) => setImg(data));
+      .then((data) => setImage(data));
   }, []);
 
   return (
@@ -25,9 +25,9 @@ const Slider = () => {
       }}
       pagination={{ clickable: true }}
     >
-      {img.map((singleImg) => (
+      {image.map((singleImg) => (
         <SwiperSlide key={singleImg._id}>
-          <img className="w-full" src={singleImg.image} />
+          <img className="w-full" src={singleImg.img} />
         </SwiperSlide>
       ))}
     </Swiper>
