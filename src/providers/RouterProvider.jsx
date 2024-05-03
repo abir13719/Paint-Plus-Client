@@ -8,6 +8,7 @@ import AllPaintings from "../pages/AllPaintings";
 import MyPainting from "../pages/MyPainting";
 import PrivateRoutesProvider from "./PrivateRoutesProvider";
 import PaintDetails from "../pages/PaintDetails";
+import UpdatePaint from "../pages/UpdatePaint";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/all-paintings",
         element: <AllPaintings></AllPaintings>,
+        loader: () => fetch("http://localhost:5000/painting"),
       },
       {
         path: "/add-painting",
@@ -45,6 +47,15 @@ const router = createBrowserRouter([
             <PaintDetails></PaintDetails>
           </PrivateRoutesProvider>
         ),
+      },
+      {
+        path: `/painting/update/:id`,
+        element: (
+          <PrivateRoutesProvider>
+            <UpdatePaint></UpdatePaint>
+          </PrivateRoutesProvider>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/painting/update/${params.id}`),
       },
       {
         path: "/sign-up",

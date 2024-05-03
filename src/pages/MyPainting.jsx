@@ -34,9 +34,18 @@ const MyPainting = () => {
             <p>Added by: {paint.userName}</p>
             <p>Process: {paint.process} minutes</p>
           </div>
-          <Link to={`/painting/${paint._id}`}>
-            <button className="btn w-full bg-black text-white hover:bg-black">View Details</button>
-          </Link>
+          <div className="grid gap-2">
+            <Link to={`/painting/update/${paint._id}`}>
+              <button className="btn w-full border-none bg-green-700 text-white hover:bg-green-600">
+                Update
+              </button>
+            </Link>
+            <Link to={`/painting/${paint._id}`}>
+              <button className="btn w-full border-none bg-red-700 text-white hover:bg-red-600">
+                Detele
+              </button>
+            </Link>
+          </div>
         </div>
       ))}
     </div>

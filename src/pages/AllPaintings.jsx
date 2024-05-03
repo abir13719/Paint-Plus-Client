@@ -1,17 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllPaintings = () => {
-  const [allPainting, setAllPainting] = useState([]);
-  console.log(allPainting);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/painting")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllPainting(data);
-      });
-  }, []);
+  const allPainting = useLoaderData();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
