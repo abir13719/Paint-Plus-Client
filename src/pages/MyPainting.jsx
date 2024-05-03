@@ -34,7 +34,7 @@ const MyPainting = () => {
             <p>Added by: {paint.userName}</p>
             <p>Process: {paint.process} minutes</p>
           </div>
-          <Link to={`/my-painting/${paint._id}`}>
+          <Link to={`/painting/${paint._id}`}>
             <button className="btn w-full bg-black text-white hover:bg-black">View Details</button>
           </Link>
         </div>
