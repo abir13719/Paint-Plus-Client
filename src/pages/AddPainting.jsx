@@ -76,8 +76,8 @@ const AddPainting = () => {
               name="category"
               className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
             >
-              <option value="paper-paint">Paper Paint</option>
-              <option value="digital-paint">Digital Paint</option>
+              <option value="Paper-Paint">Paper Paint</option>
+              <option value="Digital-Paint">Digital Paint</option>
             </select>
           </div>
           <div className="col-span-2 md:col-span-1">
@@ -111,8 +111,8 @@ const AddPainting = () => {
               name="customize"
               className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
             >
-              <option value="yes">Yes</option>
-              <option value="false">No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
           <div className="col-span-2 md:col-span-1">
@@ -135,8 +135,8 @@ const AddPainting = () => {
               name="stock"
               className="w-full py-2 px-3 text-black bg-transparent border rounded-lg border-stone-900 outline-none font-medium placeholder:text-stone-900 placeholder:font-medium"
             >
-              <option value="stock-in">Stock In</option>
-              <option value="stock-out">Stock Out</option>
+              <option value="Stock-In">Stock In</option>
+              <option value="Stock-Out">Stock Out</option>
             </select>
           </div>
           <div className="col-span-2 md:col-span-1">
