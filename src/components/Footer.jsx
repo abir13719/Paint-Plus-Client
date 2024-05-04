@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-white/30 backdrop-blur-3xl text-base-content rounded">
+    <footer className="footer gap-2 md:gap-4 footer-center p-4 md:p-10 bg-white/30 backdrop-blur-3xl text-base-content rounded">
       <h1 className="flex text-orange-600 font-bold text-4xl">
         Paint<span className="font-extrabold ml-[-6px] text-black">+</span>
       </h1>
@@ -10,7 +10,7 @@ const Footer = () => {
         <p>Bangladesh</p>
       </div>
       <nav>
-        <div className="grid grid-flow-col gap-4">
+        <div className="grid grid-flow-col gap-2 md:gap-4">
           <a href="https://twitter.com/?lang=en" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"

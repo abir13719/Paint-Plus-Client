@@ -35,7 +35,7 @@ const MyPainting = () => {
       {userPainting.map((paint) => (
         <div
           key={paint._id}
-          className="my-5 bg-gradient-to-r from-pink-500 to-orange-500 p-5 rounded-xl"
+          className="mt-1 md:mt-4 bg-gradient-to-r from-pink-500 to-orange-500 p-5 rounded-xl"
           data-aos="slide-up"
         >
           <img src={paint.photoURL} data-aos="zoom-in" />
