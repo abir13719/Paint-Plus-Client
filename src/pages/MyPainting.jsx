@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const MyPainting = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +15,21 @@ const MyPainting = () => {
       });
   }, [user]);
 
+  const handleDelete = (_id) => {
+    console.log("Delete", _id);
+    fetch(`http://localhost:5000/painting/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          alert("User deleted successfully");
+          const remainingPaint = userPainting.filter((paint) => paint._id !== _id);
+          setUserPainting(remainingPaint);
+        }
+      });
+  };
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       {userPainting.map((paint) => (
@@ -40,11 +55,13 @@ const MyPainting = () => {
                 Update
               </button>
             </Link>
-            <Link to={`/painting/${paint._id}`}>
-              <button className="btn w-full border-none bg-red-700 text-white hover:bg-red-600">
-                Detele
-              </button>
-            </Link>
+
+            <button
+              onClick={() => handleDelete(paint._id)}
+              className="btn w-full border-none bg-red-700 text-white hover:bg-red-600"
+            >
+              Detele
+            </button>
           </div>
         </div>
       ))}
