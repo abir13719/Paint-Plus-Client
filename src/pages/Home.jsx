@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Slider from "../components/Slider";
 import UserFeedback from "../components/UserFeedback";
+import Question from "../components/Question";
 
 const Home = () => {
   const allPainting = useLoaderData();
@@ -39,6 +40,7 @@ const Home = () => {
         ))}
       </div>
       <UserFeedback></UserFeedback>
+      <Question></Question>
     </div>
   );
 };

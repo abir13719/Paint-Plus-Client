@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddPainting = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,12 @@ const AddPainting = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("Paint added successfully");
+          Swal.fire({
+            title: "Success!",
+            text: "Painting added successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
           form.reset();
         }
       });

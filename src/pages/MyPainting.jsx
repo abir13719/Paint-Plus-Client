@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyPainting = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +25,12 @@ const MyPainting = () => {
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
-          alert("User deleted successfully");
+          Swal.fire({
+            title: "Success!",
+            text: "Painting deleted successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
           const remainingPaint = userPainting.filter((paint) => paint._id !== _id);
           setUserPainting(remainingPaint);
         }

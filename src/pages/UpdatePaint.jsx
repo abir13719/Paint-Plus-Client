@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdatePaint = () => {
   const loadedPaint = useLoaderData();
@@ -32,7 +33,12 @@ const UpdatePaint = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("Paint updated successfully");
+          Swal.fire({
+            title: "Success!",
+            text: "Painting updated successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
         }
       });
   };
