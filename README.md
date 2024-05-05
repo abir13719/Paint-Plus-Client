@@ -1,8 +1,24 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Paint+
 
-Currently, two official plugins are available:
+This is a painting selling website. It it made with react js and used the following libraries:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live [Link](https://paint-plus-2b826.web.app/) here.
+
+ 
+* [React Router](https://reactrouter.com/en/main)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [daisyUI](https://daisyui.com/)
+* [Firebase](https://firebase.google.com/)
+* [React Icons](https://react-icons.github.io/react-icons/)
+* [React Helmet](https://www.npmjs.com/package/react-helmet-async)
+* [Swiper Slider](https://swiperjs.com/)
+* [Animate.css](https://animate.style/)
+
+
+
+
+
+
+
+
