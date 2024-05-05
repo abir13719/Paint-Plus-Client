@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddPainting = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
   const handleAddPaint = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,7 +22,6 @@ const AddPainting = () => {
       userName: form.userName.value,
       description: form.description.value,
     };
-    console.log(newPainting);
     fetch("http://localhost:5000/painting", {
       method: "POST",
       headers: {
@@ -31,7 +31,6 @@ const AddPainting = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -46,6 +45,9 @@ const AddPainting = () => {
 
   return (
     <div className="container mx-auto  min-h-screen flex items-center justify-center loginBg my-5">
+      <Helmet>
+        <title>Paint+ | Add Painting</title>
+      </Helmet>
       <div className="bg-white/20 backdrop-blur-3xl shadow-2xl p-4 rounded-xl min-w-[360px] md:w-[600px] border border-black animate__animated animate__slideInUp">
         <form onSubmit={handleAddPaint} className="grid grid-cols-2 gap-3">
           <h1 className="text-center text-2xl font-medium text-black col-span-2">

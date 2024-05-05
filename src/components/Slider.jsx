@@ -5,7 +5,6 @@ import "swiper/swiper-bundle.css";
 
 const Slider = () => {
   const [image, setImage] = useState([]);
-  console.log(image);
 
   useEffect(() => {
     fetch("http://localhost:5000/slider")

@@ -2,11 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyPainting = () => {
   const { user } = useContext(AuthContext);
   const [userPainting, setUserPainting] = useState([]);
-  console.log(userPainting);
 
   useEffect(() => {
     fetch(`http://localhost:5000/painting/${user.email}`)
@@ -17,7 +17,6 @@ const MyPainting = () => {
   }, [user]);
 
   const handleDelete = (_id) => {
-    console.log("Delete", _id);
     fetch(`http://localhost:5000/painting/${_id}`, {
       method: "DELETE",
     })
@@ -38,6 +37,9 @@ const MyPainting = () => {
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <Helmet>
+        <title>Paint+ | My Paintings</title>
+      </Helmet>
       {userPainting.map((paint) => (
         <div
           key={paint._id}

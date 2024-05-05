@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const UserFeedback = () => {
   const [feedback, setFeedback] = useState([]);
-  console.log(feedback);
 
   useEffect(() => {
     fetch("http://localhost:5000/feedback")

@@ -2,13 +2,16 @@ import { Link, useLoaderData } from "react-router-dom";
 import Slider from "../components/Slider";
 import UserFeedback from "../components/UserFeedback";
 import Question from "../components/Question";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const allPainting = useLoaderData();
   const slided = allPainting.slice(0, 6);
-  console.log(slided);
   return (
     <div>
+      <Helmet>
+        <title>Paint+ | Home</title>
+      </Helmet>
       <Slider></Slider>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 md:mt-4">
         <h1 className="col-span-1 md:col-span-3 text-center font-bold text-2xl text-yellow-400">

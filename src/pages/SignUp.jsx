@@ -4,6 +4,7 @@ import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   // States and Variables
@@ -44,22 +45,17 @@ const SignUp = () => {
       return;
     }
 
-    // Making local user object data
-    const newUser = { name, photo, email, password };
-    console.log(newUser);
-
     //Create a new user
     createUser(email, password)
-      .then(
-        (result) =>
-          updateProfile(result.user, {
-            displayName: name,
-            photoURL: photo,
-          }),
-        setSuccess("User created successfully"),
-        navigate("/"),
-        e.target.reset()
-      )
+      .then((result) => {
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        });
+        setSuccess("User created successfully");
+        navigate("/");
+        e.target.reset();
+      })
       .catch((error) => setProblem(error.message.split("Error")[1].replace(/[()-.]/g, " ")));
   };
 
@@ -73,6 +69,9 @@ const SignUp = () => {
 
   return (
     <div className="container mx-auto  h-screen flex items-center justify-center loginBg my-5">
+      <Helmet>
+        <title>Paint+ | Sign Up</title>
+      </Helmet>
       <div className="bg-white/20 backdrop-blur-3xl shadow-2xl p-4 rounded-xl w-[360px] border border-black animate__animated animate__slideInUp">
         <form onSubmit={handleSignUp} className="flex flex-col gap-3">
           <h1 className="text-center text-2xl font-medium text-black">Sign Up</h1>

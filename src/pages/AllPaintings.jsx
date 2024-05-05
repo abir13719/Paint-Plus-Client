@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllPaintings = () => {
@@ -5,6 +6,9 @@ const AllPaintings = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <Helmet>
+        <title>Paint+ | All Paintings</title>
+      </Helmet>
       {allPainting.map((paint) => (
         <div
           key={paint._id}

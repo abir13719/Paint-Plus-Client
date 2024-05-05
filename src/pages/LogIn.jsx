@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const LogIn = () => {
   const { signInUser, signInWithGoogle, signInWithGitHub, setUser } = useContext(AuthContext);
@@ -16,15 +17,13 @@ const LogIn = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
 
     setProblem("");
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user),
-          setUser(result.user),
-          navigate(location.state ? location.state : "/");
+        setUser(result.user);
+        navigate(location.state ? location.state : "/");
       })
       .catch(() => setProblem("User and password do not match"));
   };
@@ -32,9 +31,8 @@ const LogIn = () => {
   const handleGoogleLogIn = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user),
-          setUser(result.user),
-          navigate(location.state ? location.state : "/");
+        setUser(result.user);
+        navigate(location.state ? location.state : "/");
       })
       .catch((error) => console.error(error));
   };
@@ -42,9 +40,9 @@ const LogIn = () => {
   const handleGithubLogIn = () => {
     signInWithGitHub()
       .then((result) => {
-        console.log(result.user),
-          setUser(result.user),
-          navigate(location.state ? location.state : "/");
+        console.log(result.user);
+        setUser(result.user);
+        navigate(location.state ? location.state : "/");
       })
       .catch((error) => console.error(error));
   };
@@ -54,6 +52,9 @@ const LogIn = () => {
   };
   return (
     <div className="container mx-auto  h-screen flex items-center justify-center loginBg my-5">
+      <Helmet>
+        <title>Paint+ | Login</title>
+      </Helmet>
       <div className="bg-white/20 backdrop-blur-3xl shadow-2xl p-4 rounded-xl w-[360px] border border-black animate__animated animate__slideInUp">
         <form onSubmit={handleLogIn} className="flex flex-col gap-3">
           <h1 className="text-center text-2xl font-medium text-black">Log In</h1>

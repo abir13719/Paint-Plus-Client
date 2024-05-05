@@ -1,9 +1,10 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdatePaint = () => {
   const loadedPaint = useLoaderData();
-  console.log(loadedPaint);
+
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,7 +21,6 @@ const UpdatePaint = () => {
       userName: form.userName.value,
       description: form.description.value,
     };
-    console.log(updatedPainting);
 
     fetch(`http://localhost:5000/painting/${loadedPaint._id}`, {
       method: "PUT",
@@ -44,6 +44,9 @@ const UpdatePaint = () => {
   };
   return (
     <div className="container mx-auto  min-h-screen flex items-center justify-center loginBg my-5">
+      <Helmet>
+        <title>Paint+ | Update Painting</title>
+      </Helmet>
       <div className="bg-white/20 backdrop-blur-3xl shadow-2xl p-4 rounded-xl min-w-[360px] md:w-[600px] border border-black animate__animated animate__slideInUp">
         <form onSubmit={handleUpdate} className="grid grid-cols-2 gap-3">
           <h1 className="text-center text-2xl font-medium text-black col-span-2">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 
 const PaintDetails = () => {
@@ -12,9 +13,12 @@ const PaintDetails = () => {
   }, []);
   const { id } = useParams();
   const clickedPainting = allPainting.find((p) => p._id === id);
-  console.log(clickedPainting);
+
   return (
     <div className="grid gap-4 grid-cols-2 my-5 p-3 bg-gradient-to-r from-pink-500 to-orange-500">
+      <Helmet>
+        <title>Paint+ |{clickedPainting?.paintName} Details</title>
+      </Helmet>
       <div className="col-span-2 md:col-span-1">
         <img className="w-full" src={clickedPainting?.photoURL} />
       </div>
