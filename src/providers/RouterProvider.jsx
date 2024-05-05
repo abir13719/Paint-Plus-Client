@@ -9,11 +9,13 @@ import MyPainting from "../pages/MyPainting";
 import PrivateRoutesProvider from "./PrivateRoutesProvider";
 import PaintDetails from "../pages/PaintDetails";
 import UpdatePaint from "../pages/UpdatePaint";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainBase></MainBase>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
