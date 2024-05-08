@@ -22,7 +22,7 @@ const UpdatePaint = () => {
       description: form.description.value,
     };
 
-    fetch(`http://localhost:5000/painting/${loadedPaint._id}`, {
+    fetch(`https://paint-plus-server.vercel.app/painting/${loadedPaint._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -7,7 +7,7 @@ const Slider = () => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/slider")
+    fetch("https://paint-plus-server.vercel.app/slider")
       .then((res) => res.json())
       .then((data) => setImage(data));
   }, []);

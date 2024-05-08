@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const PaintDetails = () => {
   const [allPainting, setAllPainting] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/painting")
+    fetch("https://paint-plus-server.vercel.app/painting")
       .then((res) => res.json())
       .then((data) => {
         setAllPainting(data);

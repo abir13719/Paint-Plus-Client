@@ -20,12 +20,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/painting"),
+        loader: () => fetch("https://paint-plus-server.vercel.app/painting"),
       },
       {
         path: "/all-paintings",
         element: <AllPaintings></AllPaintings>,
-        loader: () => fetch("http://localhost:5000/painting"),
+        loader: () => fetch("https://paint-plus-server.vercel.app/painting"),
       },
       {
         path: "/add-painting",
@@ -58,7 +58,8 @@ const router = createBrowserRouter([
             <UpdatePaint></UpdatePaint>
           </PrivateRoutesProvider>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/painting/update/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://paint-plus-server.vercel.app/painting/update/${params.id}`),
       },
       {
         path: "/sign-up",

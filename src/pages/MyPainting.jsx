@@ -9,7 +9,7 @@ const MyPainting = () => {
   const [userPainting, setUserPainting] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/painting/${user.email}`)
+    fetch(`https://paint-plus-server.vercel.app/painting/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserPainting(data);
@@ -17,7 +17,7 @@ const MyPainting = () => {
   }, [user]);
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/painting/${_id}`, {
+    fetch(`https://paint-plus-server.vercel.app/painting/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
