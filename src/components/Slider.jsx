@@ -7,7 +7,7 @@ const Slider = () => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
-    fetch("https://paint-plus-server.vercel.app/slider")
+    fetch("https://assignment-10-server-tan-eight.vercel.app/slider")
       .then((res) => res.json())
       .then((data) => setImage(data));
   }, []);
@@ -31,7 +31,9 @@ const Slider = () => {
               <img className="w-full h-full object-cover" src={singleImg.img} />
             </div>
             <div className="absolute top-1/2 translate-y-[-50%] z-10 left-[10%] w-[60%] md:w-[40%] bg-white/30 p-5 rounded-3xl backdrop-blur-xl shadow-xl">
-              <h1 className="text-orange-700 text-2xl font-bold">{singleImg.title}</h1>
+              <h1 className="text-orange-700 text-2xl font-bold">
+                {singleImg.title}
+              </h1>
               <p className="text-justify">{singleImg.description}</p>
             </div>
           </div>

@@ -22,7 +22,7 @@ const AddPainting = () => {
       userName: form.userName.value,
       description: form.description.value,
     };
-    fetch("https://paint-plus-server.vercel.app/painting", {
+    fetch("https://assignment-10-server-tan-eight.vercel.app/painting", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -174,7 +174,10 @@ const AddPainting = () => {
             />
           </div>
           <div className="col-span-2">
-            <label htmlFor="description" className="block text-black font-medium">
+            <label
+              htmlFor="description"
+              className="block text-black font-medium"
+            >
               Description
             </label>
             <textarea

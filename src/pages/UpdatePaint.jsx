@@ -22,13 +22,16 @@ const UpdatePaint = () => {
       description: form.description.value,
     };
 
-    fetch(`https://paint-plus-server.vercel.app/painting/${loadedPaint._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedPainting),
-    })
+    fetch(
+      `https://assignment-10-server-tan-eight.vercel.app/painting/${loadedPaint._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedPainting),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -181,7 +184,10 @@ const UpdatePaint = () => {
             />
           </div>
           <div className="col-span-2">
-            <label htmlFor="description" className="block text-black font-medium">
+            <label
+              htmlFor="description"
+              className="block text-black font-medium"
+            >
               Description
             </label>
             <textarea

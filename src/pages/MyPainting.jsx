@@ -9,7 +9,9 @@ const MyPainting = () => {
   const [userPainting, setUserPainting] = useState([]);
 
   useEffect(() => {
-    fetch(`https://paint-plus-server.vercel.app/painting/${user.email}`)
+    fetch(
+      `https://assignment-10-server-tan-eight.vercel.app/painting/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setUserPainting(data);
@@ -17,7 +19,7 @@ const MyPainting = () => {
   }, [user]);
 
   const handleDelete = (_id) => {
-    fetch(`https://paint-plus-server.vercel.app/painting/${_id}`, {
+    fetch(`https://assignment-10-server-tan-eight.vercel.app/painting/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -30,7 +32,9 @@ const MyPainting = () => {
             icon: "success",
             confirmButtonText: "OK",
           });
-          const remainingPaint = userPainting.filter((paint) => paint._id !== _id);
+          const remainingPaint = userPainting.filter(
+            (paint) => paint._id !== _id
+          );
           setUserPainting(remainingPaint);
         }
       });
